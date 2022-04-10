@@ -2,6 +2,11 @@ package fr.finn.model;
 
 import fr.finn.cli.CLI;
 
+/**
+ * Moteur de l'application.
+ *
+ * Fait tourner l'apliction en CLI.
+ */
 public class Application {
 
     //Attributs

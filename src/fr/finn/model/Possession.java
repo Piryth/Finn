@@ -5,6 +5,12 @@ import java.util.Date;
 
 /**
  * Classe association d'une action et du nombre de titres détenus.
+ *
+ * La classe représente la possession d'un certain nombre de titres d'une action.
+ *
+ * Elle possède un répertoire d'achats.
+ *
+ * @see Achat
  */
 public class Possession {
 
@@ -24,7 +30,7 @@ public class Possession {
 
     //Méthodes
     public void addAchat(Date date, int prix) {
-        achats.add(new Achat(date,prix));
+        achats.add(new Achat(this.action,date,prix));
     }
 
     //Getters et Setters

@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Le portefeuille regroupe toutes les possessions de l'utilisateur.
+ */
 public class Portefeuille {
 
     //Attributs

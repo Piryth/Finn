@@ -1,5 +1,8 @@
 package fr.finn.model;
 
+/**
+ * Représente une action d'une entreprise.
+ */
 public class Action {
 
     //Attributs
@@ -14,7 +17,6 @@ public class Action {
     }
 
     //Getters et Setters
-
 
     public String getNom() {
         return nom;
