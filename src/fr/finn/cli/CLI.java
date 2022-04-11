@@ -13,9 +13,9 @@ public class CLI {
 
         //On procède à l'affichage pour chaque possession
         for (Possession poss: possessions) {
-            System.out.println("#####################################");
+            System.out.println("=================================");
             System.out.println(poss.getAction().getNom());
-            System.out.println("######################################");
+            System.out.println("=================================");
             System.out.println("Symbole : " + poss.getAction().getSymbole());
             System.out.println("Nombre de titres possédés : " + poss.getNbTitres());
         }
