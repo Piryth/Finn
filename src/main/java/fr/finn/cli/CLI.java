@@ -2,6 +2,7 @@ package fr.finn.cli;
 import fr.finn.model.*;
 
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -32,15 +33,15 @@ public class CLI {
         //On initialise la saisie
         Scanner sc = new Scanner(System.in);
 
+        //Saisie de la place de coatation
+        System.out.println("Sur quelle place de cotation rechercher ? : ");
+        String place = sc.nextLine();
+
         //Saisie du nom
         System.out.println("Saisissez un nom d'entreprise : ");
         String nom = sc.nextLine();
 
-        //Saisie du symbole
-        System.out.println("Saisissez un symbole d'action : ");
-        String symbole = sc.nextLine();
-
-        return new Action(nom,symbole);
+        return new Action(place.toLowerCase(Locale.ROOT),nom);
     }
 
     /**
