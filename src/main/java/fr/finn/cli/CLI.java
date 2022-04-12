@@ -14,11 +14,12 @@ public class CLI {
 
         //On procède à l'affichage pour chaque possession
         for (Possession poss: possessions) {
-            System.out.println("=================================");
-            System.out.println(poss.getAction().getNom());
-            System.out.println("=================================");
-            System.out.println("Symbole : " + poss.getAction().getSymbole());
-            System.out.println("Nombre de titres possédés : " + poss.getNbTitres());
+            System.out.println("╔═════════════════════════════════════════════════════╗");
+            System.out.println("║   " + poss.getAction().getNom() + "                 ");
+            System.out.println("╠═════════════════════════════════════════════════════╣");
+            System.out.println("║   Symbole : " + poss.getAction().getSymbole() + "   ");
+            System.out.println("║   Nombre de titres possédés : " + poss.getNbTitres()   + "");
+            System.out.println("╚═════════════════════════════════════════════════════╝");
         }
     }
 
@@ -34,8 +35,11 @@ public class CLI {
         Scanner sc = new Scanner(System.in);
 
         //Saisie de la place de coatation
-        System.out.println("Sur quelle place de cotation rechercher ? : ");
+        System.out.print("Sur quelle place de cotation rechercher ? : ");
         String place = sc.nextLine();
+
+        //On saute une ligne pour l'affichage
+        System.out.println();
 
         //Saisie du nom
         System.out.println("Saisissez un nom d'entreprise : ");
@@ -79,18 +83,25 @@ public class CLI {
         int choix;
 
         //Explications à l'utilisateur
-        System.out.println("Choisir une action : ");
-        System.out.println("----------------------------------");
-        System.out.println("1 - Ajouter une action");
-        System.out.println("2 - Visualiser le portefeuille");
-        System.out.println("0 - Quitter");
+        System.out.println("                    Finn 0.0 : Egg");
+        System.out.println("╔═════════════════════════════════════════════════════╗");
+        System.out.println("║                    Menu Principal                   ║");
+        System.out.println("╠═════════════════════════════════════════════════════╣");
+        System.out.println("║    #1 - Ajouter une action                          ║");
+        System.out.println("║    #2 - Visualiser le portefeuille                  ║");
+        System.out.println("║    #0 - Quitter                                     ║");
+        System.out.println("╚═════════════════════════════════════════════════════╝");
+
 
         do {
             //On lance la saisie
+            System.out.print("Chosis un menu : ");
             choix = sc.nextInt();
             //On nettoie
             sc.nextLine();
         } while(choix < 0 | choix > 2);
+
+        System.out.println();
 
         return choix;
     }
