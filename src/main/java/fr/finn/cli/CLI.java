@@ -35,17 +35,13 @@ public class CLI {
         Scanner sc = new Scanner(System.in);
 
         //Saisie de la place de coatation
-        System.out.print("Sur quelle place de cotation rechercher ? : ");
-        String place = sc.nextLine();
+        System.out.print("Saisis le symbole de l'action : ");
+        String symbole = sc.nextLine( );
 
         //On saute une ligne pour l'affichage
         System.out.println();
 
-        //Saisie du nom
-        System.out.println("Saisissez un nom d'entreprise : ");
-        String nom = sc.nextLine();
-
-        return new Action(place.toLowerCase(Locale.ROOT),nom);
+        return new Action(symbole);
     }
 
     /**

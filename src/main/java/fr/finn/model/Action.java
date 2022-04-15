@@ -1,12 +1,12 @@
 package fr.finn.model;
 
 import fr.finn.donnees.DonneeUtilitaire;
+import yahoofinance.YahooFinance;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Scanner;
+
+import static yahoofinance.YahooFinance.*;
 
 /**
  * Représente une action d'une entreprise.
@@ -26,6 +26,17 @@ public class Action {
         setSymbole(symbole);
     }
 
+    public Action(String symbole) {
+        setSymbole(symbole);
+        try {
+            this.nom = get(symbole).getName();
+            this.place = get(symbole).getStockExchange();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public Action(String place,String nom) {
         setPlace(place);
         setNom(nom);
@@ -35,9 +46,11 @@ public class Action {
     //Méthodes
 
     /**
-     * Retourne le symbole associé au titre. Les symboles sont stockés dans des fichiers .csv
+     * Retourne le symbole associé au titre. Les symboles sont stockés dans des fichiers .csv.
      *
-     * Crée pour nasdaq et euronext
+     * Crée pour nasdaq et euronext.
+     *
+     * De plus la fonction corrige le nom de l'entreprise et met le nom complet.
      *
      * @return Le symbole associé au titre (ex : Apple Inc. → AAPL)
      */
@@ -70,6 +83,11 @@ public class Action {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+
+        //
+        if(!action.getNom().equals(ligne[0])) {
+            action.setNom(ligne[0]);
         }
 
         //Le symbole n'est pas placé au même endroit dans le fichier
